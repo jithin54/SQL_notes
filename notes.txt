@@ -1,1 +1,67 @@
 
+
+Basic queries
+-------------------
+select all
+---------------
+SELECT * FROM table_name;
+
+select one column item
+-------------
+SELECT name from table_name;
+
+SELECT name, ID from table_name;
+
+SELECT student.name, student.ID from table_name
+
+
+order by
+-----------
+SELECT student.name, student.major
+from table_name ORDER BY student_name ASC/DESC;
+
+SELECT student.name, student.major
+from table_name ORDER BY student_name ASC/DESC;
+
+SELECT student.name, student.major
+from table_name ORDER BY student.major, student.name ASC/DESC;
+
+
+ASC/DESC : ascending ot descending
+
+LIMIT 2; results limitted to 2
+
+ex:
+
+SELECT * FROM table_name
+ORDER by student_name ASC/DESC
+LIMIT 2;
+
+use where as well
+SELECT * FROM table_name
+WHERE major = 'MATHS';
+
+SELECT * FROM table_name
+where student.name IN ("John", "Smith", "Jack");
+
+creating a composite primary key
+---------------------------------
+normal primary key
+PRIMARY KEY (emp_id);
+
+composite
+PRIMARY KEY (emp_id, emp_name)
+
+
+creating foreign key
+--------------------
+
+FOREIGN KEY (branch_allotted) REFERENCES branch(branch_id) 
+ON DELETE SET NULL;
+
+this creation of foreign key is normally done after creating the table
+because some of the table would not be created at the time of creation of a table
+
+ALTER TABLE employee
+ADD FOREIGN KEY (branch_allotted) REFERENCES branch(branch_id) 
+ON DELETE SET NULL;
